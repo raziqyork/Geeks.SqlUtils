@@ -1,0 +1,5 @@
+c:\Projects\Geeks.SqlUtils\Geeks.SqlUtils\bin\Debug\Geeks.SqlUtils.dacpac
+c:\Projects\Geeks.SqlUtils\Geeks.SqlUtils\bin\Debug\Geeks.SqlUtils.dll
+c:\Projects\Geeks.SqlUtils\Geeks.SqlUtils\bin\Debug\Geeks.SqlUtils.pdb
+c:\Projects\Geeks.SqlUtils\Geeks.SqlUtils\obj\Debug\Geeks.SqlUtils.dll
+c:\Projects\Geeks.SqlUtils\Geeks.SqlUtils\obj\Debug\Geeks.SqlUtils.pdb

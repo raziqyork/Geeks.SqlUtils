@@ -1,0 +1,26 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Drop
+       [Geeks.SqlUtils] (Assembly)
+     Create
+       [Geeks.SqlUtils] (Assembly)
+       [dbo].[ToTitleCase] (Function)
+       [dbo].[TrimEnd] (Function)
+       [dbo].[TrimStart] (Function)
+
+** Supporting actions
+     Drop
+       [dbo].[AsGuid] (Function)
+       [dbo].[ToSentenceCase] (Function)
+     Create
+       [dbo].[AsGuid] (Function)
+       [dbo].[ToSentenceCase] (Function)
