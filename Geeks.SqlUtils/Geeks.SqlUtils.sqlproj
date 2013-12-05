@@ -64,6 +64,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AsGuid.cs" />
@@ -71,9 +72,12 @@
     <Compile Include="Trim.cs" />
     <Compile Include="ToTitleCase.cs" />
     <Compile Include="OrNull.cs" />
+    <Compile Include="AnyOf.cs" />
+    <Compile Include="UniqueList.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Snapshots\Geeks.SqlUtils_20131204_11-29-13.dacpac" />
     <None Include="Geeks.SqlUtils.publish.xml" />
+    <None Include="Geeks.SqlUtils_mobile.publish.xml" />
   </ItemGroup>
 </Project>
