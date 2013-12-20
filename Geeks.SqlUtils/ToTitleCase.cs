@@ -24,6 +24,6 @@ public partial class UserDefinedFunctions
             .TextInfo
             .ToTitleCase(lowerCase);
 
-        return new SqlString(result);
+        return new SqlString(result, text.LCID);
     }
 }

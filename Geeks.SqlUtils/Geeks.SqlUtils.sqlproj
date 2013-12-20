@@ -71,9 +71,15 @@
     <Compile Include="ToSentenceCase.cs" />
     <Compile Include="Trim.cs" />
     <Compile Include="ToTitleCase.cs" />
-    <Compile Include="OrNull.cs" />
-    <Compile Include="AnyOf.cs" />
+    <Compile Include="Or.SqlString.cs" />
     <Compile Include="UniqueList.cs" />
+    <Compile Include="AsBigint.cs" />
+    <Compile Include="AsDateTime.cs" />
+    <Compile Include="Lookup.cs" />
+    <Compile Include="SqlValue.cs" />
+    <Compile Include="Regex.cs" />
+    <Compile Include="Or.SqlGuid.cs" />
+    <Compile Include="Or.SqlInt.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Snapshots\Geeks.SqlUtils_20131204_11-29-13.dacpac" />

@@ -16,7 +16,7 @@ public partial class UserDefinedFunctions
     {
         if (text.IsNull || text.Value == null) return SqlString.Null;
 
-        return new SqlString(text.Value.Trim());
+        return new SqlString(text.Value.Trim(), text.LCID);
     }
 
     [SqlFunction]
@@ -26,7 +26,7 @@ public partial class UserDefinedFunctions
 
         if (trimText.IsNull || trimText.Value == null) return text;
 
-        return new SqlString(text.Value.Trim(trimText.Value.ToCharArray()));
+        return new SqlString(text.Value.Trim(trimText.Value.ToCharArray()), text.LCID);
     }
 
     [SqlFunction]
@@ -36,7 +36,7 @@ public partial class UserDefinedFunctions
 
         if (trimText.IsNull || trimText.Value == null) return text;
 
-        return new SqlString(text.Value.TrimStart(trimText.Value.ToCharArray()));
+        return new SqlString(text.Value.TrimStart(trimText.Value.ToCharArray()), text.LCID);
     }
 
     [SqlFunction]
@@ -46,6 +46,6 @@ public partial class UserDefinedFunctions
 
         if (trimText.IsNull || trimText.Value == null) return text;
 
-        return new SqlString(text.Value.TrimEnd(trimText.Value.ToCharArray()));
+        return new SqlString(text.Value.TrimEnd(trimText.Value.ToCharArray()), text.LCID);
     }
 }
