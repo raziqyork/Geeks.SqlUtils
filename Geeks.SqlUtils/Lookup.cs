@@ -4,6 +4,7 @@
 // </copyright>
 //------------------------------------------------------------------------------
 
+using System.Text.RegularExpressions;
 using Microsoft.SqlServer.Server;
 using System;
 using System.Data;
@@ -59,22 +60,97 @@ public partial class UserDefinedFunctions
         return Int32.TryParse(found, out guid) ? new SqlInt32(guid) : SqlInt32.Null;
     }
 
+    [SqlFunction]
+    public static SqlString LookupText(SqlString param, SqlString lookupValues)
+    {
+        var found = LookupValue(param, lookupValues);
+        return !String.IsNullOrWhiteSpace(found)
+            ? new SqlString(found, param.LCID)
+            : SqlString.Null;
+    }
+
+    static readonly Regex NullValuePattern = new Regex(@"\|\s*\*\s*$", RegexOptions.Compiled | RegexOptions.Singleline);
+    static readonly Regex NullSubstPattern = new Regex(@"\*NULL\*", RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.Singleline);
+
     private static string LookupValue(SqlString param, SqlString lookupValues)
     {
         if (lookupValues.IsNull || String.IsNullOrWhiteSpace(lookupValues.Value))
             throw new ArgumentNullException("lookupValues");
 
-        if (param.IsNull || param.Value == null) return null;
+        var values = lookupValues.Value;
 
-        var lookupTable = lookupValues.Value.Split(new[] { '|' }, StringSplitOptions.RemoveEmptyEntries)
-            .Select(e => e.Split(':'));
+        string paramValue;
+        if (param.IsNull || String.IsNullOrWhiteSpace(param.Value))
+        {
+            if (!NullSubstPattern.IsMatch(values)) return null;
+            paramValue = "*NULL*";
+        }
+        else
+        {
+            paramValue = param.Value.Trim();
+        }
 
-        var value = param.Value;
+        var match = NullValuePattern.Match(values);
+        var returnParamIfNull = match.Success;
+        if (returnParamIfNull) values = values.Substring(0, match.Index);
+
+        var lookupTable = values.Split(new[] { '|' }, StringSplitOptions.RemoveEmptyEntries)
+            .Select(e => new Pair(e));
 
         var query = from entry in lookupTable
-                    where value.Equals(entry[0].Trim(), StringComparison.OrdinalIgnoreCase)
-                    select entry[1].Trim();
+                    where entry.IsKey(paramValue)
+                    select entry.Value;
 
-        return query.FirstOrDefault();
+        //var lookupTable = values.Split(new[] { '|' }, StringSplitOptions.RemoveEmptyEntries)
+        //    .Select(e => e.Split(':'));
+
+        //var query = from entry in lookupTable
+        //            where paramValue.Equals(entry[0].Trim(), StringComparison.OrdinalIgnoreCase)
+        //            select entry[1].Trim();
+
+        var found = query.FirstOrDefault();
+        if (found != null) return found;
+
+        if (returnParamIfNull)
+        {
+            found = paramValue;
+        }
+        else
+        {
+            var entry = lookupTable.Last();
+            if (entry.IsKey("*"))
+            {
+                found = entry.Value;
+            }
+        }
+        return found;
+    }
+
+    private struct Pair
+    {
+        public string Key;
+
+        public string Value;
+
+        static readonly Regex Pattern = new Regex(@"^\s*(.+)\s*:\s*(.+)\s*$", RegexOptions.Compiled | RegexOptions.Singleline);
+
+        public bool IsKey(string key)
+        {
+            return (key == null && Key == null) || Key.Equals(key, StringComparison.OrdinalIgnoreCase);
+        }
+
+        public Pair(string raw)
+        {
+            Key = null;
+            Value = null;
+
+            var match = Pattern.Match(raw);
+            if (!match.Success) return;
+
+            Key = match.Groups[1].Value;
+
+            var group2 = match.Groups[2];
+            if (group2.Success) Value = group2.Value;
+        }
     }
 }
