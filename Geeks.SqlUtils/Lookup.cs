@@ -56,8 +56,8 @@ public partial class UserDefinedFunctions
     public static SqlInt32 LookupInt(SqlString param, SqlString lookupValues)
     {
         var found = LookupValue(param, lookupValues);
-        int guid;
-        return Int32.TryParse(found, out guid) ? new SqlInt32(guid) : SqlInt32.Null;
+        int value;
+        return Int32.TryParse(found, out value) ? new SqlInt32(value) : SqlInt32.Null;
     }
 
     [SqlFunction]

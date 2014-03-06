@@ -16,7 +16,7 @@ public partial class UserDefinedFunctions
     }
 
     [SqlFunction]
-    public static SqlString Or(
+    public static SqlString Or2(
         SqlString text0,
         SqlString text1)
     {

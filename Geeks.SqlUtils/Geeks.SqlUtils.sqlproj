@@ -70,7 +70,7 @@
     <Compile Include="AsGuid.cs" />
     <Compile Include="ToSentenceCase.cs" />
     <Compile Include="Trim.cs" />
-    <Compile Include="ToTitleCase.cs" />
+    <Compile Include="WrapSuffixPrefix.cs" />
     <Compile Include="Or.SqlString.cs" />
     <Compile Include="UniqueList.cs" />
     <Compile Include="AsBigint.cs" />
@@ -80,10 +80,21 @@
     <Compile Include="Regex.cs" />
     <Compile Include="Or.SqlGuid.cs" />
     <Compile Include="Or.SqlInt.cs" />
+    <Compile Include="TableFunctions.cs" />
+    <Compile Include="ToSafeFileName.cs" />
+    <Compile Include="Join.cs" />
+    <Compile Include="GrpConcat.cs" />
+    <Compile Include="GrpConcat.Fields.cs" />
+    <Compile Include="Concatenate.cs" />
+    <Compile Include="Any.cs" />
+    <Compile Include="ToTitleCase.cs" />
+    <Compile Include="FilePath.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Snapshots\Geeks.SqlUtils_20131204_11-29-13.dacpac" />
-    <None Include="Geeks.SqlUtils.publish.xml" />
-    <None Include="Geeks.SqlUtils_mobile.publish.xml" />
+    <None Include="Geeks.SqlUtils_tbs.publish.xml" />
+    <None Include="Geeks.SqlUtils_merits.publish.xml" />
+    <None Include="Geeks.SqlUtils_mappings.publish.xml" />
+    <None Include="Geeks.SqlUtils_ProdMod.publish.xml" />
   </ItemGroup>
 </Project>
