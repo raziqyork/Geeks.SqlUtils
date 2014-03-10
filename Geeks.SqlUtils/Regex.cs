@@ -54,4 +54,10 @@ public partial class UserDefinedFunctions
 
         //return SqlBoolean.True;
     }
+
+    [SqlFunction]
+    public static SqlBoolean RegexIsNotMatch(SqlString text, SqlString pattern)
+    {
+        return RegexIsMatch(text, pattern).Negate();
+    }
 }

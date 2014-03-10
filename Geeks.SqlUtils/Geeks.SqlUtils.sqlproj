@@ -83,12 +83,12 @@
     <Compile Include="TableFunctions.cs" />
     <Compile Include="ToSafeFileName.cs" />
     <Compile Include="Join.cs" />
-    <Compile Include="GrpConcat.cs" />
-    <Compile Include="GrpConcat.Fields.cs" />
     <Compile Include="Concatenate.cs" />
     <Compile Include="Any.cs" />
     <Compile Include="ToTitleCase.cs" />
     <Compile Include="FilePath.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="LikeEscaped.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Snapshots\Geeks.SqlUtils_20131204_11-29-13.dacpac" />
