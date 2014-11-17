@@ -53,6 +53,12 @@
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Geeks.SqlUtils\Geeks.SqlUtils.sqlproj">
+      <Project>{ac47b247-0586-4263-9eab-d8f24c830db9}</Project>
+      <Name>Geeks.SqlUtils</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

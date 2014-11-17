@@ -89,6 +89,9 @@
     <Compile Include="FilePath.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="LikeEscaped.cs" />
+    <Compile Include="Levenshtein.cs" />
+    <Compile Include="DistanceBetween.cs" />
+    <Compile Include="TakeNotNull.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Snapshots\Geeks.SqlUtils_20131204_11-29-13.dacpac" />

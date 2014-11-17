@@ -3,3 +3,5 @@ c:\Projects\Geeks.SqlUtils\Geeks.SqlUtils.Tests\bin\Debug\Geeks.SqlUtils.Tests.p
 c:\Projects\Geeks.SqlUtils\Geeks.SqlUtils.Tests\obj\Debug\Geeks.SqlUtils.Tests.dll
 c:\Projects\Geeks.SqlUtils\Geeks.SqlUtils.Tests\obj\Debug\Geeks.SqlUtils.Tests.pdb
 c:\Projects\Geeks.SqlUtils\Geeks.SqlUtils.Tests\obj\Debug\Geeks.SqlUtils.Tests.csprojResolveAssemblyReference.cache
+C:\Projects\Geeks.SqlUtils\Geeks.SqlUtils.Tests\bin\Debug\Geeks.SqlUtils.dll
+C:\Projects\Geeks.SqlUtils\Geeks.SqlUtils.Tests\bin\Debug\Geeks.SqlUtils.pdb
